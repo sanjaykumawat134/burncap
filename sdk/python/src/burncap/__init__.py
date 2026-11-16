@@ -1,4 +1,4 @@
-"""BurnCap client helper. Zero dependencies; Python 3.9+.
+"""BurnCap client helper. Zero dependencies; Python 3.10+.
 
     from openai import OpenAI
     from burncap import BurnCap, is_budget_error, new_run_id

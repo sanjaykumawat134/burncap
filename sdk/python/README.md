@@ -2,7 +2,7 @@
 
 Hard budgets for AI agents. Route OpenAI and Anthropic calls through [BurnCap](https://github.com/sanjaykumawat134/burncap) to track spend per agent, run and customer, and have agents paused or throttled automatically when they hit a budget.
 
-Zero dependencies. Python 3.9+.
+Zero dependencies. Python 3.10+.
 
 ## Install
 

@@ -79,7 +79,7 @@ Full API docs are served at `/docs`.
 | `app/w/[workspaceId]/export/route.ts` | Monthly CSV export of daily spend |
 | `sdk/js/` | TypeScript SDK (`burncap` npm package, unpublished): base URLs, headers, `isBudgetError`, `track`, `status` |
 | `sdk/python/` | Python SDK (`burncap` PyPI package, unpublished), same API |
-| `.github/workflows/ci.yml` | CI: app lint/typecheck/test/build, SDK build + pack, Python tests on 3.9 and 3.13 |
+| `.github/workflows/ci.yml` | CI: app lint/typecheck/test/build, SDK build + pack, Python tests on 3.10 and 3.14 |
 | `lib/demo/` | Demo mode: fixtures plus in-memory Supabase/Redis stand-ins |
 | `supabase/migrations/` | Schema, RLS, new-user workspace trigger |
 

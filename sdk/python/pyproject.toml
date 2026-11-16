@@ -7,7 +7,7 @@ name = "burncap"
 version = "0.1.0"
 description = "Hard budgets for AI agents: route OpenAI/Anthropic calls through BurnCap to track spend and auto-pause agents."
 readme = "README.md"
-requires-python = ">=3.9"
+requires-python = ">=3.10"
 dependencies = []
 keywords = ["llm", "openai", "anthropic", "agents", "budget", "cost"]
 classifiers = [
