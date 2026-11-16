@@ -1,0 +1,49 @@
+{
+  "name": "burncap",
+  "version": "0.1.0",
+  "description": "Hard budgets for AI agents: route OpenAI/Anthropic calls through BurnCap to track spend and auto-pause agents.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sanjaykumawat134/burncap.git",
+    "directory": "sdk/js"
+  },
+  "keywords": [
+    "llm",
+    "openai",
+    "anthropic",
+    "agents",
+    "budget",
+    "cost"
+  ],
+  "sideEffects": false,
+  "type": "module",
+  "main": "./dist/cjs/index.js",
+  "module": "./dist/esm/index.js",
+  "types": "./dist/esm/index.d.ts",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/esm/index.d.ts",
+        "default": "./dist/esm/index.js"
+      },
+      "require": {
+        "types": "./dist/cjs/index.d.ts",
+        "default": "./dist/cjs/index.js"
+      }
+    }
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "build": "node -e \"require('fs').rmSync('dist',{recursive:true,force:true})\" && tsc -p tsconfig.esm.json && tsc -p tsconfig.cjs.json && node -e \"require('fs').writeFileSync('dist/cjs/package.json','{\\\"type\\\":\\\"commonjs\\\"}')\"",
+    "prepublishOnly": "npm run build"
+  },
+  "devDependencies": {
+    "typescript": "^5"
+  }
+}

@@ -1,0 +1,23 @@
+[build-system]
+requires = ["hatchling>=1.24"]
+build-backend = "hatchling.build"
+
+[project]
+name = "burncap"
+version = "0.1.0"
+description = "Hard budgets for AI agents: route OpenAI/Anthropic calls through BurnCap to track spend and auto-pause agents."
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = []
+keywords = ["llm", "openai", "anthropic", "agents", "budget", "cost"]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "Typing :: Typed",
+]
+
+[project.urls]
+Homepage = "https://github.com/sanjaykumawat134/burncap"
+Documentation = "https://github.com/sanjaykumawat134/burncap/tree/master/sdk/python"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/burncap"]

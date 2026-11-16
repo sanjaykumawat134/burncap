@@ -10,7 +10,7 @@ const SECTIONS = [
   { id: "quickstart", title: "Quickstart" },
   { id: "headers", title: "Attribution headers" },
   { id: "limits", title: "Handling budget limits" },
-  { id: "sdk", title: "TypeScript helper" },
+  { id: "sdk", title: "SDKs (Python, TypeScript)" },
   { id: "events", title: "Reporting usage manually" },
   { id: "status", title: "Checking agent status" },
   { id: "behaviour", title: "Good to know" },
@@ -131,10 +131,31 @@ const anthropic = new Anthropic({
             </p>
           </Section>
 
-          <Section id="sdk" title="TypeScript helper">
+          <Section id="sdk" title="SDKs (Python, TypeScript)">
             <p>
-              <code className={ic}>sdk/burncap.ts</code> is a single dependency-free file you can copy into your project. It builds
-              the base URLs and headers, tells budget errors apart from provider errors, and wraps the endpoints below.
+              Both SDKs are optional and dependency-free. They build the base URLs and headers, tell BurnCap budget errors
+              apart from the provider&apos;s own errors, and wrap the endpoints below. Neither is on PyPI or npm yet.
+            </p>
+            <Code title="Python: install from GitHub">{`pip install "git+https://github.com/sanjaykumawat134/burncap#subdirectory=sdk/python"`}</Code>
+            <Code>{`from openai import OpenAI
+from burncap import BurnCap, is_budget_error, new_run_id
+
+bc = BurnCap(key=os.environ["BURNCAP_KEY"], base_url="${BASE}")
+client = OpenAI(
+    base_url=bc.openai_base_url,
+    default_headers=bc.headers(agent="researcher", run=new_run_id("research")),
+)
+
+try:
+    client.chat.completions.create(model="gpt-4.1", messages=messages)
+except Exception as err:
+    if is_budget_error(err):
+        stop_agent("Out of budget")
+    else:
+        raise`}</Code>
+            <p>
+              <strong>TypeScript:</strong> copy <code className={ic}>sdk/js/src/index.ts</code> from the repo into your project
+              (it&apos;s one file) and import from it.
             </p>
             <Code>{`import OpenAI from "openai";
 import { BurnCap, isBudgetError, newRunId } from "./burncap";

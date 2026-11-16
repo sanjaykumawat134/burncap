@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { BurnCap, isBudgetError, newRunId } from "./burncap";
+import { BurnCap, isBudgetError, newRunId } from "./index";
 
 describe("BurnCap SDK", () => {
   const bc = new BurnCap({ key: "bc_live_test", baseUrl: "https://example.com/" });

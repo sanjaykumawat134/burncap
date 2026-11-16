@@ -77,7 +77,9 @@ Full API docs are served at `/docs`.
 | `app/api/v1/events/route.ts` | Manual usage ingest for calls that skip the proxy |
 | `app/api/v1/agents/[agentId]/status/route.ts` | Agent budget status (active / throttled / paused) |
 | `app/w/[workspaceId]/export/route.ts` | Monthly CSV export of daily spend |
-| `sdk/burncap.ts` | Copy-in TypeScript helper: base URLs, headers, `isBudgetError`, `track`, `status` |
+| `sdk/js/` | TypeScript SDK (`burncap` npm package, unpublished): base URLs, headers, `isBudgetError`, `track`, `status` |
+| `sdk/python/` | Python SDK (`burncap` PyPI package, unpublished), same API |
+| `.github/workflows/ci.yml` | CI: app lint/typecheck/test/build, SDK build + pack, Python tests on 3.9 and 3.13 |
 | `lib/demo/` | Demo mode: fixtures plus in-memory Supabase/Redis stand-ins |
 | `supabase/migrations/` | Schema, RLS, new-user workspace trigger |
 
@@ -87,4 +89,4 @@ Full API docs are served at `/docs`.
 
 ## Not built yet
 
-Overage billing, a published npm package for the SDK, a Python helper.
+Overage billing. Publishing the SDKs to npm and PyPI (packages are ready; pick a license first).
